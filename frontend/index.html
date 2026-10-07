@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Employee Management System Employee management dashboard">
+  <title>Employee Management System • Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-copy"><strong>Employee Management System</strong></div>
+  </div>
+  <nav class="nav-list" aria-label="Main navigation">
+    <a class="nav-link active" href="index.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+    <a class="nav-link " href="employees.html"><span class="nav-icon">◎</span><span>Employees</span></a>
+    <a class="nav-link " href="add-employee.html"><span class="nav-icon">＋</span><span>Add / Update</span></a>
+    <a class="nav-link " href="analytics.html"><span class="nav-icon">◫</span><span>Reports</span></a>
+  </nav>
+  <div class="sidebar-card">
+      <div class="mini-label">System status</div>
+      <div class="status-row"><span class="status-dot" id="status-dot"></span><strong id="status-text">Checking API…</strong></div>
+      <p>Flask REST API connected to the SQLite database.</p>
+    </div>
+</aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button>
+        <div class="topbar-title"><span class="eyebrow">PEOPLE OPERATIONS</span><h1>Dashboard</h1></div>
+        <div class="topbar-actions">
+          <a class="btn btn-outline-head" href="employees.html">View employees</a>
+          <button class="icon-btn" id="theme-toggle" title="Toggle theme">☼</button><div><strong></strong><span></span></div></div>
+        </header>
+
+      <section class="page-body">
+        <div class="hero-banner">
+          <div><span class="hero-kicker">EMPLOYEE MANAGEMENT SYSTEM</span><h2>Keep every employee record in order.</h2><p>A practical employee record system with live CRUD operations, validation, reporting, and SQLite storage.</p></div>
+          <a class="btn btn-light" href="add-employee.html">＋ New record</a>
+        </div>
+
+        <div class="metric-grid" id="dashboard-metrics">
+          <article class="metric-card"><div class="metric-top"><span>Total employees</span><span class="metric-icon">◎</span></div><strong id="metric-total">—</strong><small>Active employee records</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Average salary</span><span class="metric-icon">₹</span></div><strong id="metric-avg">—</strong><small>Across all employees</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Annual payroll</span><span class="metric-icon">↗</span></div><strong id="metric-payroll">—</strong><small>Current salary total</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Departments</span><span class="metric-icon">◫</span></div><strong id="metric-depts">—</strong><small>Teams with employee records</small></article>
+        </div>
+
+        <div class="content-grid two-col">
+          <section class="card chart-card">
+            <div class="card-header"><div><span class="eyebrow">WORKFORCE</span><h3>Headcount by department</h3></div><a class="text-link" href="analytics.html">View analytics →</a></div>
+            <div class="bar-chart" id="department-bars"><div class="loading-state">Loading workforce data…</div></div>
+          </section>
+          <section class="card activity-card">
+            <div class="card-header"><div><span class="eyebrow">LIVE FEED</span><h3>Recent activity</h3></div><a class="text-link" href="analytics.html#api">Reports →</a></div>
+            <div class="activity-list" id="activity-list"><div class="loading-state">Loading activity…</div></div>
+          </section>
+        </div>
+
+        <section class="card">
+          <div class="card-header"><div><span class="eyebrow">LATEST RECORDS</span><h3>Recently added employees</h3></div><a class="btn btn-ghost" href="employees.html">Open directory</a></div>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Employee</th><th>Department</th><th>Designation</th><th>Salary</th><th>Joined</th></tr></thead><tbody id="recent-table"><tr><td colspan="5"><div class="loading-state">Loading records…</div></td></tr></tbody></table></div>
+        </section>
+      </section>
+      <footer class="footer">Employee Management System Employee Management System <span>•</span> Flask + SQLite + Vanilla JavaScript</footer>
+    </main>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>

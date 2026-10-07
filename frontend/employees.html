@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Employee directory and CRUD management"><title>Employee Management System • Employees</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="employees">
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-copy"><strong>Employee Management System</strong></div>
+  </div>
+  <nav class="nav-list" aria-label="Main navigation">
+    <a class="nav-link " href="index.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+    <a class="nav-link active" href="employees.html"><span class="nav-icon">◎</span><span>Employees</span></a>
+    <a class="nav-link " href="add-employee.html"><span class="nav-icon">＋</span><span>Add / Update</span></a>
+    <a class="nav-link " href="analytics.html"><span class="nav-icon">◫</span><span>Reports</span></a>
+  </nav>
+  <div class="sidebar-card">
+      <div class="mini-label">Directory</div>
+      <div class="status-row"><span class="status-dot online"></span><strong>Live records</strong></div>
+      <p>Search, filter, sort, edit and remove employee entries.</p>
+    </div>
+</aside>
+  <main class="main-content">
+    <header class="topbar"><button class="icon-btn mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button><div class="topbar-title"><span class="eyebrow">DIRECTORY</span><h1>Employee Directory</h1></div><div class="topbar-actions"><a class="btn btn-outline-head" href="add-employee.html">＋ Add employee</a><button class="icon-btn" id="theme-toggle" title="Toggle theme">☼</button></div></header>
+    <section class="page-body">
+      <div class="page-heading"><div><span class="eyebrow">EMPLOYEE FILES</span><h2>Find, edit, and maintain records</h2><p>Use live filters to work with employee data without reloading the page.</p></div><a class="btn btn-primary" href="add-employee.html">＋ New record</a></div>
+      <section class="card filter-card">
+        <div class="search-row"><div class="search-field"><span>⌕</span><input id="employee-search" type="search" placeholder="Search ID, name, department, designation or phone…"></div><select id="department-filter"><option value="">All departments</option></select><select id="sort-filter"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="salary-high">Salary high–low</option><option value="salary-low">Salary low–high</option></select><button class="btn btn-secondary" id="clear-filters">Reset</button><button class="btn btn-ghost" id="export-csv">Export CSV</button></div>
+        <div class="filter-meta"><span id="results-label">0 records</span><span class="live-indicator"><span class="status-dot online"></span> Live API data</span></div>
+      </section>
+      <section class="card table-card"><div class="table-wrap"><table class="data-table employee-table"><thead><tr><th>Employee</th><th>Employee ID</th><th>Department</th><th>Designation</th><th>Salary</th><th>Contact</th><th>Actions</th></tr></thead><tbody id="employees-tbody"><tr><td colspan="7"><div class="loading-state">Loading employee records…</div></td></tr></tbody></table></div><div class="empty-state hidden" id="employee-empty"><div class="empty-icon">◎</div><h3>No employees found</h3><p>Try a different search or add a new employee record.</p><a class="btn btn-primary" href="add-employee.html">Add first employee</a></div></section>
+    </section>
+    <footer class="footer">Manage records with GET, POST, PUT, DELETE endpoints <span>•</span> Validated on client and server</footer>
+  </main>
+</div>
+<div id="delete-modal" class="modal-backdrop hidden"><div class="modal"><div class="modal-icon danger">!</div><h3>Delete employee?</h3><p id="delete-text">This action cannot be undone.</p><div class="modal-actions"><button class="btn btn-secondary" id="delete-cancel">Cancel</button><button class="btn btn-danger-solid" id="delete-confirm">Delete record</button></div></div></div>
+<div id="toast" class="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>

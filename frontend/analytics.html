@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Employee records and workforce reports"><title>Employee Management System • Reports</title><link rel="stylesheet" href="style.css"></head>
+<body data-page="analytics">
+<div class="app-shell"><aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-copy"><strong>Employee Management System</strong></div>
+  </div>
+  <nav class="nav-list" aria-label="Main navigation">
+    <a class="nav-link " href="index.html"><span class="nav-icon">⌂</span><span>Dashboard</span></a>
+    <a class="nav-link " href="employees.html"><span class="nav-icon">◎</span><span>Employees</span></a>
+    <a class="nav-link " href="add-employee.html"><span class="nav-icon">＋</span><span>Add / Update</span></a>
+    <a class="nav-link active" href="analytics.html"><span class="nav-icon">◫</span><span>Reports</span></a>
+  </nav>
+  <div class="sidebar-card">
+      <div class="mini-label">Reports</div>
+      <div class="status-row"><span class="status-dot online"></span><strong>Live calculations</strong></div>
+      <p>Charts and totals are calculated from current employee records.</p>
+    </div>
+</aside>
+<main class="main-content"><header class="topbar"><button class="icon-btn mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button><div class="topbar-title"><span class="eyebrow">REPORTING</span><h1>Reports</h1></div><div class="topbar-actions"><a class="btn btn-outline-head" href="employees.html">Employee list</a><button class="icon-btn" id="theme-toggle">☼</button><div><strong></strong><span></span></div></div></header>
+<section class="page-body"><div class="page-heading"><div><span class="eyebrow">DATA INSIGHTS</span><h2>Read the current workforce record</h2><p>These figures are calculated from the same employee records used by the CRUD screens.</p></div><button class="btn btn-ghost" id="refresh-analytics">↻ Refresh</button></div>
+<div class="metric-grid compact"><article class="metric-card"><div class="metric-top"><span>Minimum salary</span><span class="metric-icon">↓</span></div><strong id="min-salary">—</strong><small>Lowest current salary</small></article><article class="metric-card"><div class="metric-top"><span>Maximum salary</span><span class="metric-icon">↑</span></div><strong id="max-salary">—</strong><small>Highest current salary</small></article><article class="metric-card"><div class="metric-top"><span>Average salary</span><span class="metric-icon">≈</span></div><strong id="analytics-avg">—</strong><small>Mean salary across records</small></article><article class="metric-card"><div class="metric-top"><span>Payroll total</span><span class="metric-icon">₹</span></div><strong id="analytics-payroll">—</strong><small>Sum of employee salaries</small></article></div>
+<div class="content-grid two-col"><section class="card chart-card"><div class="card-header"><div><span class="eyebrow">HEADCOUNT</span><h3>Department distribution</h3></div></div><div class="donut-layout"><div class="donut" id="donut-chart"><div class="donut-center"><strong id="donut-total">0</strong><span>employees</span></div></div><div id="donut-legend" class="legend-list"></div></div></section><section class="card chart-card"><div class="card-header"><div><span class="eyebrow">COMPENSATION</span><h3>Salary distribution</h3></div></div><div id="salary-bars" class="salary-bars"></div></section></div>
+<section class="card"><div class="card-header"><div><span class="eyebrow">DEPARTMENT TABLE</span><h3>Team summary</h3></div></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Department</th><th>Employees</th><th>Share</th><th>Payroll</th><th>Average salary</th></tr></thead><tbody id="dept-summary"></tbody></table></div></section>
+</section><footer class="footer">Reports are generated from the same REST API used by the dashboard <span>•</span> No hard-coded statistics</footer></main></div><div id="toast" class="toast"></div><script src="script.js"></script></body></html>
